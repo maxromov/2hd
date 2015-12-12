@@ -1,0 +1,103 @@
+<?php
+
+namespace api\Repository;
+
+use Doctrine\DBAL\Connection;
+use api\Entity\Order;
+
+/**
+ * Order repository
+ */
+class OrderRepository implements RepositoryInterface
+{
+    /**
+     * @var \Doctrine\DBAL\Connection
+     */
+    protected $db;
+
+    public function __construct(Connection $db)
+    {
+        $this->db = $db;
+    }
+    
+    /**
+     * Saves the orders to the database.
+     *
+     * @param \api\Entity\Order $order
+     */
+    public function save($order)
+    {
+        $orderData = [
+            'delivery_address' => $order->getDeliveryAddress(),
+            'package_cost' => $order->getPackageCost(),
+            'delivery_cost' => $order->getDeliveryCost(),
+        ];
+
+        if ($order->getId()) {
+            $this->db->update('Order', $orderData, array('id' => $order->getId()));
+        } else {
+
+            $orderData['creation_date'] = time();
+            $this->db->insert('Order', $orderData);
+            
+            $id = $this->db->lastInsertId();
+            $order->setId($id);
+        }
+    }
+
+    /**
+     * Deletes the order.
+     *
+     * @param \api\Entity\order $order
+     */
+    public function delete($order)
+    {
+        // If the order had an image, delete it.
+        $image = $order->getImage();
+
+        return $this->db->delete('Order', array('id' => $order->getId()));
+    }
+
+    /**
+     * Returns the total number of orders.
+     *
+     * @return integer The total number of orders.
+     */
+    public function getCount() 
+    {
+        return $this->db->fetchColumn('SELECT COUNT(id) FROM Order');
+    }
+
+    /**
+     * Returns an order matching the supplied id.
+     *
+     * @param integer $id
+     *
+     * @return \api\Entity\order|false An entity object if found, false otherwise.
+     */
+    public function find($id)
+    {
+        $orderData = $this->db->fetchAssoc('SELECT * FROM Order WHERE id = ?', array($id));
+        
+        return $orderData ? $this->buildorder($orderData) : FALSE;
+    }
+
+    /**
+     * Returns a collection of orders, sorted by name.
+     *
+     */
+    public function findAll($limit, $offset = 0, $orderBy = array())
+    {
+        $orders = $this->db->fetchAssoc("SELECT * FROM `Order`");
+
+        return $orders;
+    }
+
+
+    public function findAllOrders($limit, $offset = 0, $orderBy = []
+    {
+        $orders = $this->db->fetchAssoc("SELECT * FROM `Order`");
+
+        return $orders;
+    }
+}

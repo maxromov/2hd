@@ -1,5 +1,19 @@
 {
+    "name": "maxromov/2hd",
     "require": {
-        "silex/silex": "~1.3"
+        "silex/silex": "~1.3",
+        "doctrine/dbal": "~2.2",
+
+        "symfony/config": "~2.3",
+        "symfony/form": "~2.3",
+        "symfony/locale": "~2.3",
+        "symfony/security": "~2.3",
+        "symfony/translation": "~2.3",
+        "symfony/twig-bridge": "~2.3",
+        "symfony/validator": "~2.3",
+        "swiftmailer/swiftmailer": "~5.0"
+    },
+    "autoload": {
+        "psr-0": {"" : "src/"}
     }
 }

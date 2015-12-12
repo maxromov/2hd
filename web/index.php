@@ -12,15 +12,15 @@ $app = new Silex\Application();
 //$app['debug'] = true;
 //$app['cache'] = false;
 
-$app->get('/countries/{id}', function ($id) use ($app) {
+$app->get('/orders/{id}', function ($id) use ($app) {
 
   return $app->json($app['db']->fetchAssoc("SELECT * FROM `Order` WHERE id = {$id}"));
 
 })->assert('id', '\d+');
 
-$app->get('/countries/', function () use ($app) {
+$app->get('/orders/', function () use ($app) {
 
-  return $app->json($app['db']->fetchAssoc("SELECT * FROM `Order`"));
+  return $app->json($app['db']->fetchAll("SELECT * FROM `Order`"));
 
 });
 

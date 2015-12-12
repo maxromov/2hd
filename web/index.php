@@ -20,7 +20,8 @@ $app->get('/orders/{id}', function ($id) use ($app) {
 
 $app->get('/orders/', function () use ($app) {
 
-  return $app->json($app['db']->fetchAll("SELECT * FROM `Order`"));
+    $sql = "SELECT `o`.*, `s`.address, `s`.company_name FROM `Order` `o` LEFT JOIN `Seller` `s` ON `s`.`id` = `o`.`Seller_id`";
+    return $app->json($app['db']->fetchAll($sql));
 
 });
 

@@ -35,7 +35,6 @@ class OrdersService extends BaseService
     function save($order)
     {        
         $this->db->insert("`Order`", $order);
-
         return $this->db->lastInsertId();
     }
 

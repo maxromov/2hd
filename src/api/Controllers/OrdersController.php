@@ -54,11 +54,12 @@ class OrdersController
     
     public function getDataFromRequest($request)
     {
+        $currTime = 1000 * time();
     
         $data = [
             '1' => [
                 'orders' => [
-                    'creation_date' => time(),
+                    'creation_date' => $currTime,
                     'delivery_address' => 'Киев, Березова, 8',
                     'Seller_id' => '1',
                     'Courier_id' => '1',

@@ -36,7 +36,8 @@ class OrdersController
 
         //$this->db->insert("`Order`", $order);
 
-        return new JsonResponse(array("id" => $this->ordersService->save($order)));
+        header('Location: http://2hd.com.ua');
+        //return new JsonResponse(array("id" => $this->ordersService->save($order)));
     }
 
     public function update($id, Request $request)

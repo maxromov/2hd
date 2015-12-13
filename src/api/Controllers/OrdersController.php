@@ -54,12 +54,10 @@ class OrdersController
     
     public function getDataFromRequest($request)
     {
-        $currTime = 1000 * time();
-    
         $data = [
             '1' => [
                 'orders' => [
-                    'creation_date' => $currTime,
+                    'creation_date' => time() * 1000,
                     'delivery_address' => 'Киев, Березова, 8',
                     'Seller_id' => '1',
                     'Courier_id' => '1',
@@ -69,7 +67,7 @@ class OrdersController
             ],
             '2' => [
                 'orders' => [
-                    'creation_date' => time(),
+                    'creation_date' => time() * 1000,
                     'delivery_address' => 'Киев, Студентская, 22',
                     'Seller_id' => '1',
                     'Courier_id' => '1',
@@ -79,7 +77,7 @@ class OrdersController
             ],
             '3' => [
                 'orders' => [
-                    'creation_date' => time(),
+                    'creation_date' => time() * 1000,
                     'delivery_address' => 'Киев, Борщаговская, 38',
                     'Seller_id' => '1',
                     'Courier_id' => '1',
@@ -89,7 +87,7 @@ class OrdersController
             ],
             '4' => [
                 'orders' => [
-                    'creation_date' => time(),
+                    'creation_date' => time() * 1000,
                     'delivery_address' => 'Киев, Старокиевская, 18',
                     'Seller_id' => '1',
                     'Courier_id' => '1',
@@ -99,7 +97,7 @@ class OrdersController
             ],
             '5' => [
                 'orders' => [
-                    'creation_date' => time(),
+                    'creation_date' => time() * 1000,
                     'delivery_address' => 'Киев, Вокзальная, 198',
                     'Seller_id' => '1',
                     'Courier_id' => '1',

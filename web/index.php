@@ -20,6 +20,7 @@ $app->post('/orders/create', function() use($app) {
             $app['db']->insert('Order', array(
       'creation_date' => time()
     ));
+
 /*
 
     $student = $app['db']->prepare($sql);

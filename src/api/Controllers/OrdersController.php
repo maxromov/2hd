@@ -58,7 +58,7 @@ class OrdersController
             '1' => [
                 'orders' => [
                     'creation_date' => time() * 1000,
-                    'delivery_address' => 'Киев, Березова, 8',
+                    'delivery_address' => 'Киев, Приозерна, 8',
                     'Seller_id' => '1',
                     'Courier_id' => '1',
                     'package_cost' => '1000',
@@ -113,7 +113,7 @@ class OrdersController
             '6' => [
                 'orders' => [
                     'creation_date' => time() * 1000,
-                    'delivery_address' => 'Киев, xxxxxxxxx, 8',
+                    'delivery_address' => 'Киев, Привокзальна, 8',
                     'Seller_id' => '1',
                     'Courier_id' => '1',
                     'package_cost' => '1000',

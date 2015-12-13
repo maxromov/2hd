@@ -13,6 +13,27 @@ $app = new Silex\Application();
 require __DIR__ . '/../app/config/live.php';
 require __DIR__ . '/../src/core.php';
 
+$app->post('/orders/create', function() use($app) {
+    $sql = "INSERT INTO Order (creation_date)
+            VALUES (:date)";
+
+            $app['db']->insert('Order', array(
+      'creation_date' => time()
+    ));
+/*
+
+    $student = $app['db']->prepare($sql);
+    $student->bindValue(':date', time(), PDO::PARAM_STR);
+
+    $student->execute();
+*/
+    return "insert successful";
+});
+
+
+
+
+
 //$app['http_cache']->run();
 
 $app->run();

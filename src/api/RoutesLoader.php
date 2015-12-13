@@ -17,7 +17,7 @@ class RoutesLoader
     private function instantiateControllers()
     {
         $this->app['orders.controller'] = $this->app->share(function () {
-            return new Controllers\OrdersController($this->app['orders.service']);
+            return new Controllers\OrdersController($this->app['orders.service'], $this->app['db']);
         });
     }
 

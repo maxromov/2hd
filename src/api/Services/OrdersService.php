@@ -34,11 +34,7 @@ class OrdersService extends BaseService
 
     function save($order)
     {        
-        $this->db->insert("Order", $order);
-
-        //$curr_time = time();
-        //$sql = "INSERT INTO `Order`('creation_date','Courier_id','Seller_id','delivery_address','delivery_cost','package_cost') 
-        //        VALUES(\'{$curr_time}\',\'{$order['Courier_id']}\',\'{$order['Seller_id']}\',\'{$order['delivery_address']}\',\'{$order['delivery_cost']}\',\'{$order['package_cost']}\')";
+        $this->db->insert("`Order`", $order);
 
         return $this->db->lastInsertId();
     }

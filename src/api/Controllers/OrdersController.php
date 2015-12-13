@@ -11,10 +11,12 @@ use Symfony\Component\HttpFoundation\Response;
 class OrdersController
 {
     protected $ordersService;
+    protected $db;
 
-    public function __construct($service)
+    public function __construct($service, $db)
     {
         $this->ordersService = $service;
+        $this->db = $db;
     }
 
     public function getAll()
@@ -29,10 +31,11 @@ class OrdersController
 
     public function save(Request $request)
     {
-        $request = 5;
+        $request = rand(1,5);
         $order = $this->getDataFromRequest($request);
 
-        
+        //$this->db->insert("`Order`", $order);
+
         return new JsonResponse(array("id" => $this->ordersService->save($order)));
     }
 
@@ -53,95 +56,54 @@ class OrdersController
     {
     
         $data = [
+            '1' => [
+                'orders' => [
+                    'creation_date' => time(),
+                    'delivery_address' => 'Киев, Березова, 8',
+                    'Seller_id' => '1',
+                    'Courier_id' => '1',
+                    'package_cost' => '1000',
+                    'delivery_cost' => '100'
+                ]
+            ],
+            '2' => [
+                'orders' => [
+                    'creation_date' => time(),
+                    'delivery_address' => 'Киев, Студентская, 22',
+                    'Seller_id' => '1',
+                    'Courier_id' => '1',
+                    'package_cost' => '1200',
+                    'delivery_cost' => '110'
+                ]
+            ],
+            '3' => [
+                'orders' => [
+                    'creation_date' => time(),
+                    'delivery_address' => 'Киев, Борщаговская, 38',
+                    'Seller_id' => '1',
+                    'Courier_id' => '1',
+                    'package_cost' => '1000',
+                    'delivery_cost' => '10'
+                ]
+            ],
+            '4' => [
+                'orders' => [
+                    'creation_date' => time(),
+                    'delivery_address' => 'Киев, Старокиевская, 18',
+                    'Seller_id' => '1',
+                    'Courier_id' => '1',
+                    'package_cost' => '1200',
+                    'delivery_cost' => '110'
+                ]
+            ],
             '5' => [
                 'orders' => [
                     'creation_date' => time(),
-                ],
-                'status' => [
-                    'Courier_id' => '',
-                    'Seller_id' => '',
-                    'creation_date' => '',
-                    'delivery_address' => '',
-                    'delivery_cost' => '',
-                    'package_cost' => '',
-                ],
-                'courier' => [
-                    'first_name' => '',
-                    'last_name' => '',
-                    'phone_number' => '',
-                ],
-                'seller' => [
-                    'address' => '',
-                    'company_name' => '',
-                    'email' => '',
-                    'id' => '',
-                    'password' => '',
-                    'phone_number' => ''
-                ]
-            ],
-            '6' => [
-                'orders' => [
-                    'creation_date' => '',
-                    'delivery_address' => '',
-                    'Seller_id' => '',
-                    'Courier_id' => '',
-                    'package_cost' => '',
-                    'delivery_cost' => ''
-                ],
-                'status' => [
-                    'Courier_id' => '',
-                    'Seller_id' => '',
-                    'creation_date' => '',
-                    'delivery_address' => '',
-                    'delivery_cost' => '',
-                    'package_cost' => '',
-                ],
-                'courier' => [
-                    'id' => '',
-                    'first_name' => '',
-                    'last_name' => '',
-                    'phone_number' => '',
-                ],
-                'seller' => [
-                    'address' => '',
-                    'company_name' => '',
-                    'email' => '',
-                    'id' => '',
-                    'password' => '',
-                    'phone_number' => ''
-                ]
-            ],
-            '7' => [
-                'orders' => [
-                    'id' => '',
-                    'creation_date' => '',
-                    'delivery_address' => '',
-                    'Seller_id' => '',
-                    'Courier_id' => '',
-                    'package_cost' => '',
-                    'delivery_cost' => ''
-                ],
-                'status' => [
-                    'Courier_id' => '',
-                    'Seller_id' => '',
-                    'creation_date' => '',
-                    'delivery_address' => '',
-                    'delivery_cost' => '',
-                    'package_cost' => '',
-                ],
-                'courier' => [
-                    'id' => '',
-                    'first_name' => '',
-                    'last_name' => '',
-                    'phone_number' => '',
-                ],
-                'seller' => [
-                    'address' => '',
-                    'company_name' => '',
-                    'email' => '',
-                    'id' => '',
-                    'password' => '',
-                    'phone_number' => ''
+                    'delivery_address' => 'Киев, Вокзальная, 198',
+                    'Seller_id' => '1',
+                    'Courier_id' => '1',
+                    'package_cost' => '1000',
+                    'delivery_cost' => '10'
                 ]
             ],
         ];

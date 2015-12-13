@@ -14,7 +14,7 @@ class OrdersService extends BaseService
                 LEFT JOIN `Seller` `s` ON s.id = o.Seller_id
                 LEFT JOIN `Courier` `c` ON c.id = o.Courier_id
                 LEFT JOIN `Order_History` `h` ON h.Order_id = o.id
-                ORDER BY `o`.`creation_date` ASC";
+                ORDER BY `o`.`creation_date` DESC";
         return $this->db->fetchAll($sql);
     }
 

@@ -53,7 +53,12 @@ $app->register(new DoctrineServiceProvider(), array(
         'port'     => '3306',
         'dbname'   => 'delivery_database',
         'user'     => 'root',
-        'password' => 'gh6ECm8mPd59QP'
+        'password' => 'gh6ECm8mPd59QP',
+
+        'charset' => 'utf8',
+        'driverOptions' => array(
+                1002=>'SET NAMES utf8'
+        )
     ),
 ));
 

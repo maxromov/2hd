@@ -11,7 +11,7 @@ class OrdersService extends BaseService
 
     public function getById($id)
     {
-        return $this->db->fetchAll("SELECT `o`.*, `s`.`address` as `from_address` FROM `Order` `o` LEFT JOIN `Seller` `s` ON s.id = o.Seller_id WHERE id = ?", array($id));
+        return $this->db->fetchAll("SELECT `o`.*, `s`.`address` as `from_address` FROM `Order` `o` LEFT JOIN `Seller` `s` ON s.id = o.Seller_id WHERE s.id = ?", array($id));
     }
 
     function save($order)

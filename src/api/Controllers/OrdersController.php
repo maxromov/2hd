@@ -62,7 +62,8 @@ class OrdersController
                     'Seller_id' => '1',
                     'Courier_id' => '1',
                     'package_cost' => '1000',
-                    'delivery_cost' => '100'
+                    'delivery_cost' => '100',
+                    'status_order' => 'создано'
                 ]
             ],
             '2' => [
@@ -72,7 +73,8 @@ class OrdersController
                     'Seller_id' => '1',
                     'Courier_id' => '1',
                     'package_cost' => '1200',
-                    'delivery_cost' => '110'
+                    'delivery_cost' => '110',
+                    'status_order' => 'создано'
                 ]
             ],
             '3' => [
@@ -82,7 +84,8 @@ class OrdersController
                     'Seller_id' => '1',
                     'Courier_id' => '1',
                     'package_cost' => '1000',
-                    'delivery_cost' => '10'
+                    'delivery_cost' => '10',
+                    'status_order' => 'создано'
                 ]
             ],
             '4' => [
@@ -92,7 +95,8 @@ class OrdersController
                     'Seller_id' => '1',
                     'Courier_id' => '1',
                     'package_cost' => '1200',
-                    'delivery_cost' => '110'
+                    'delivery_cost' => '110',
+                    'status_order' => 'создано'
                 ]
             ],
             '5' => [
@@ -102,7 +106,19 @@ class OrdersController
                     'Seller_id' => '1',
                     'Courier_id' => '1',
                     'package_cost' => '1000',
-                    'delivery_cost' => '10'
+                    'delivery_cost' => '10',
+                    'status_order' => 'создано'
+                ]
+            ],
+            '6' => [
+                'orders' => [
+                    'creation_date' => time() * 1000,
+                    'delivery_address' => 'Киев, xxxxxxxxx, 8',
+                    'Seller_id' => '1',
+                    'Courier_id' => '1',
+                    'package_cost' => '1000',
+                    'delivery_cost' => '100',
+                    'status_order' => 'создано'
                 ]
             ],
         ];

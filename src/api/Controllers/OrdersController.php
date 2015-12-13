@@ -2,6 +2,8 @@
 
 namespace api\Controllers;
 
+use Silex\Application;
+
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -34,7 +36,7 @@ class OrdersController
     public function update($id, Request $request)
     {
         $order = $this->getDataFromRequest($request);
-        //$this->ordersService->update($id, $order);
+        $this->ordersService->update($id, $order);
         
         return new JsonResponse($order);
     }

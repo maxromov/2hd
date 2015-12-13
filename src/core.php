@@ -16,9 +16,10 @@ date_default_timezone_set('Europe/Kiev');
 
 define("ROOT_PATH", __DIR__ . "/..");
 
+
 //handling CORS preflight request
-$app->before(function (Request $request) {
-   if ($request->getMethod() === "OPTIONS") {
+$app->before(function (Request $request) use ($app) {
+  if ($request->getMethod() === "OPTIONS") {
        $response = new Response();
        $response->headers->set("Access-Control-Allow-Origin","*");
        $response->headers->set("Access-Control-Allow-Methods","GET,POST,PUT,DELETE,OPTIONS");
